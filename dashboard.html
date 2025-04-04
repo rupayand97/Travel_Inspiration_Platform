@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Recommendations</title>
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <style>
+    </style>
+</head>
+<body>
+    <script type="module" src="./js/navbar.js"></script>
+    
+    <div class="container">
+        <h1>Personalized Destination Recommendations</h1>
+        
+        <label for="preference">Select Your Travel Preference:</label>
+        <select id="preference">
+            <option>Select</option>
+            <option value="adventure">Adventure</option>
+            <option value="relaxation">Relaxation</option>
+            <option value="culture">Culture</option>
+            <option value="history">History</option>
+        </select>
+
+        <button id="getRecommendations">submit</button>
+
+        <div class="destination-container" id="recommendations"></div>
+
+    </div>
+
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="Expanded View">
+    </div>
+
+    <script src="./js/dashboard.js"></script>
+</body>
+</html>

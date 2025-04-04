@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Trips</title>
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/my-trips.css">
+    <style>
+    </style>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <script type="module" src="./js/navbar.js"></script>
+
+    <div class="container">
+        <h2>My Saved Trips</h2>
+        <div id="savedTrips"></div>
+        <a href="dashboard.html" class="back-link">Back to Dashboard</a>
+    </div>
+
+    <script>
+        function loadSavedTrips() {
+            let savedTrips = JSON.parse(localStorage.getItem("favorites")) || [];
+            let tripsDiv = document.getElementById("savedTrips");
+            tripsDiv.innerHTML = "";
+
+            if (savedTrips.length === 0) {
+                tripsDiv.innerHTML = "<p>No saved trips yet.</p>";
+                setTimeout(() => {
+                    window.location.href = "dashboard.html"; // Redirect if no trips left
+                }, 2000);
+                return;
+            }
+
+            savedTrips.forEach((trip, index) => {
+                let tripCard = document.createElement("div");
+                tripCard.classList.add("trip-card");
+                tripCard.innerHTML = `
+                    <p><strong>${trip}</strong></p>
+                    <button class="btn" onclick="removeTrip(${index})">Remove</button>
+                `;
+                tripsDiv.appendChild(tripCard);
+            });
+        }
+
+        function removeTrip(index) {
+            let savedTrips = JSON.parse(localStorage.getItem("favorites")) || [];
+            savedTrips.splice(index, 1); // Remove selected trip
+            localStorage.setItem("favorites", JSON.stringify(savedTrips));
+            loadSavedTrips(); // Refresh list
+
+            if (savedTrips.length === 0) {
+                setTimeout(() => {
+                    window.location.href = "dashboard.html"; // Redirect if no trips left
+                }, 1000);
+            }
+        }
+
+        loadSavedTrips();
+    </script>
+</body>
+</html>
