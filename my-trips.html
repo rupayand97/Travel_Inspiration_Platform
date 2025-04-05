@@ -30,7 +30,7 @@
             if (savedTrips.length === 0) {
                 tripsDiv.innerHTML = "<p>No saved trips yet.</p>";
                 setTimeout(() => {
-                    window.location.href = "dashboard.html"; // Redirect if no trips left
+                    window.location.href = "dashboard.html";
                 }, 2000);
                 return;
             }
@@ -48,13 +48,13 @@
 
         function removeTrip(index) {
             let savedTrips = JSON.parse(localStorage.getItem("favorites")) || [];
-            savedTrips.splice(index, 1); // Remove selected trip
+            savedTrips.splice(index, 1);
             localStorage.setItem("favorites", JSON.stringify(savedTrips));
-            loadSavedTrips(); // Refresh list
+            loadSavedTrips();
 
             if (savedTrips.length === 0) {
                 setTimeout(() => {
-                    window.location.href = "dashboard.html"; // Redirect if no trips left
+                    window.location.href = "dashboard.html";
                 }, 1000);
             }
         }
