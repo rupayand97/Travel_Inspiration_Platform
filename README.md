@@ -9,12 +9,43 @@ Fullstack
 ### Deployed App
 https://inspiring-mousse-31b27b.netlify.app/
 
+### Github
+https://github.com/rupayand97/Travel_Inspiration_Platform
 
 ### Directory Structure
 
+    Travel Inspiration Platform
+        css
+            -dashboard.css
+            -index.css
+            -my-trips.css
+            -navbar.css
+            -signup.css
+        data
+            -destination.json
+        js
+            -auth.js
+            -dashboard.js
+            -firebase-config.js
+            -navbar.js
+        
+        dashboard.html
+        index.html
+        my-trips.html
+        recommendeddestination.html
+        signup.html
+        README.md
+    
+     
 ## Features
-
-### API Endpoints
+-login and signup
+-Photo Gallary
+-review and rating
+-recommended destionation search
+-description of the location
+-add to favourite feature
+-Recommend special attractions near this location
+-logout
 
 ### Technology Stack
 *HTML* – Used to create the structure and layout of the web pages.
